@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body style="background:black;color:lime;font-family:monospace;">
+<h2>🛡 Antifraud Panel</h2>
+
+<button onclick="run('check_sat')">Check SAT</button>
+<button onclick="run('monitor_conavi')">Check CONAVI</button>
+
+<pre id="log"></pre>
+
+<script>
+async function run(s){
+ let r = await fetch("/run/"+s);
+ let j = await r.json();
+ document.getElementById("log").innerText += "\n"+j.output;
+}
+</script>
+</body>
+</html>
